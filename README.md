@@ -42,3 +42,5 @@ This folder contains code to implement stratified co-accessibility score regress
 
 # peak_gene_finemapping/
 
+This folder contains code to implement peak-gene fine-mapping.
+
