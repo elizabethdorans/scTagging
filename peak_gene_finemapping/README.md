@@ -18,8 +18,8 @@ Example command: [~1 hour, ~5G]
 `<atac_file>`: Path to ATAC metacell-level matrix.\
 `<outfile>`: File to save output to.\
 `<num_causal_peaks>`: [OPTIONAL] The maximum number of causal peaks per gene ('L' parameter in the susie() function). Default is 1. Maximum is 10.
-`<weights_file>`: [OPTIONAL] A file with prior weights to be used in fine-mapping (default behavior is flat priors). Generated from stratified co-accessibility score regression (see the .ipynb notebook in the `S-CASC/` folder).
-`<link_universe_file>`: [OPTIONAL] 2-column .tsv file (columns = \['peak', 'gene'\]. If supplied, only the peak-gene pairs in the link universe file will be considered in fine-mapping (e.g. the universe of CRISPR-tested peak-gene pairs).
+`<weights_file>`: [OPTIONAL] A file with prior weights to be used in fine-mapping (default behavior is flat priors). Generated from stratified co-accessibility score regression (see the .ipynb notebook in the `S-CASC/` folder).\
+`<link_universe_file>`: [OPTIONAL] 2-column .tsv file (columns = \['peak', 'gene'\]. If supplied, only the peak-gene pairs in the link universe file will be considered in fine-mapping (e.g. the universe of CRISPR-tested peak-gene pairs).\
 `<blacklist_peaks_file>`: [OPTIONAL] Single-column text file with a list of peaks to exclude from fine-mapping.\
 `<gene_set_file>`: [OPTIONAL] Single-column text file with a list of genes to include in fine-mapping.
                     
