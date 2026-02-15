@@ -13,14 +13,14 @@ Example command: [~2 minutes, ~2G]
 
 `Rscript create_annot.py --peaks_bedfile <peaks_bedfile> --annot_bedfile <annot_bedfile> --outfile <outfile>`
 
-<peaks_bedfile>: Path to a bedfile containing ATAC peak coordinates.\
-<annot_bedfile>: Path to a bedfile containing coordinates of genomic regions of interest.\
-<\outfile>: File to save output to.\
-<proportion_bp_overlap>: If supplied, the "value" or category membership of each peak will be computed as the proportion of base pairs in the peak that overlap the set of genomic regions of interest. By default, the value for each peak is equal to 1 (if there is any overlap with the set of genomic regions) or 0 (if no overlap).
+`<peaks_bedfile>`: Path to a bedfile containing ATAC peak coordinates.\
+`<annot_bedfile>`: Path to a bedfile containing coordinates of genomic regions of interest.\
+`<outfile>`: File to save output to.\
+`<proportion_bp_overlap>`: If supplied, the "value" or category membership of each peak will be computed as the proportion of base pairs in the peak that overlap the set of genomic regions of interest. By default, the value for each peak is equal to 1 (if there is any overlap with the set of genomic regions) or 0 (if no overlap).
                     
 Outputs: 
 
-1) Peak category memberships at <\outfile>
+1) Peak category memberships at <outfile>
 
 ## Step 2: Define number of nearby genes per peak
 
@@ -30,9 +30,9 @@ Example command: [~2 minutes, ~2G]
 
 `Rscript number_nearby_genes.py --peaks_bedfile <peaks_bedfile> --coactivity_scores_file <coactivity_scores_file> --outfile <outfile>`
 
-<peaks_bedfile>: Path to a bedfile containing ATAC peak coordinates.\
-<coactivity_scores_file>: Path to file with co-activity scores.\
-<\outfile>: File to save output to.\
+`<peaks_bedfile>`: Path to a bedfile containing ATAC peak coordinates.\
+`<coactivity_scores_file>`: Path to file with co-activity scores.\
+`<outfile>`: File to save output to.
 
 ## Step 3: Run S-CASC
 
