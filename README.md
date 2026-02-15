@@ -1,5 +1,5 @@
 # scTagging
-This repo contain code for implementing analyses in Dorans et al. medRxiv, "Distinguishing causal from tagging enhancers using single-cell multiome data." See the manuscript at XX for more details. See below (and analysis-specific folders) for steps to compute ATAC peak-level and gene-level scores, implement stratified co-accessibility score regression, and fine-map ATAC peaks to genes.
+This repo contain code for implementing analyses in Dorans et al. medRxiv, "Distinguishing causal from tagging enhancers using single-cell multiome data." See below (and analysis-specific folders) for steps to compute ATAC peak-level and gene-level scores, implement stratified co-accessibility score regression, and fine-map ATAC peaks to genes.
 
 Clone the repository using the following command: 
 
