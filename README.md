@@ -11,7 +11,7 @@ Submit jobs to your own remote cluster (e.g. using [sbatch](https://slurm.schedm
 `cmd="\<command>"; sbatch --time=<time> --mem=<mem> ... --wrap="$cmd"`
 Approximate memory and time requirements are given for computationally intensive tasks, but these will need to be adjusted for different data sets.
 
-# Step 1: Compute peak-peak co-accessibility and peak-gene links using ArchR.
+# Step 0: Compute peak-peak co-accessibility and peak-gene links using ArchR.
 
 The script `run_archr_peak_gene_linking_coaccessibility_metacells.R` takes as input an ArchR project for a single-cell RNA+ATAC multiome data set, computes peak-peak correlations for all peak-peak pairs with distance <1Mb, computes peak-gene correlations for all peak-gene pairs with distance <1Mb, and saves RNA and ATAC metacell-level matrices for downstream analyses.
 
@@ -29,36 +29,6 @@ Outputs:
 2) Peak-gene correlations at <out_dir>/peak_gene_links_dist<distance_threshold>.tsv
 3) RNA metacell matrix at <out_dir>/RNA_metacell_matrices/RNA_metacell_matrix.rds
 3) ATAC metacell matrix at <out_dir>/ATAC_metacell_matrices/ATAC_metacell_matrix.rds
-
-## Running E2G methods
-
-See README.md files in method-specific folders for further steps in running each method!
-
-## Post-processing for IGVF portal:
-
-The script `postprocessing_for_IGVF_portal.R` takes as input peak-gene link predictions, restricts to a given gene universe, and produces a file with format appropriate for the IGVF portal.
-
-**NOTE: In order to use the included gene universe file `CollapsedGeneBounds.hg38.bed`, run `postprocessing_for_IGVF_portal.R ` from this folder (`E2G_Method_Tutorials`) or specify the path to this file from your location as an argument to `--genes_file`.**
-
-Example command: 
-
-`Rscript reformatting_for_IGVF_portal.R --input_file <input_file> --output_file <output_file>  --genes_file IGVF_portal_genes_file.tsv --cell_type <cell_type> --sample_summary_short <sample_summary_short> --sample_term_id <sample_term_id> --method <method> --version <version> --metadata <metadata> --score_column <score_column> --score_type <score_type>`
-
-<input_file>: A .tsv file containing E2G method predictions (includes at minimum columns 'peak', 'gene', and 'Score').\
-<output_file>: A .tsv file containing containing E2G method predictions restricted to gene universe and reformatted for IGVF portal.\
-<genes_file>: [DEFAULT CollapsedGeneBounds.hg38.bed] Gene universe file (inclues gene symbol in 'name' column and Ensembl ID in 'Ensembl_ID' column). The default gene universe file CollapsedGeneBounds.hg38.bed was obtained from https://github.com/EngreitzLab/CRISPR_comparison/blob/main/resources/genome_annotations/CollapsedGeneBounds.hg38.bed.\
-<cell_type>: Cell type used to generate predictions (for 'CellType' column).\
-<sample_summary_short>: Short string describing sample information (for header).\
-<sample_term_id>: Sample ID (for header).\
-\<method>: E2G method used to generate predictions (for header).\
-\<version>: Version of E2G method used to generate predictions (for header).\
-\<metadata>: IGVF data portal accession.\
-\<score_column>: Name of column in input file to be renamed 'Score.'\
-\<score_type>: Type of score (from options {positive_score, negative_score, p_value, adj_p_value, divergent, boolean}) (for header).\
-                    
-Outputs: 
-
-1) Reformatted predictions at <output_file>
 
 # peak_scores/
 
