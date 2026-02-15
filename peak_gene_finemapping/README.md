@@ -1,7 +1,7 @@
 # Peak-gene fine-mapping
 This folder contains code to fine-map peaks to genes (see manuscript for additional method details).
 
-## Step 0: Compute peak-gene links and save metacel matrices
+## Step 0: Compute peak-gene links and save metacell matrices
 
 See Step 0 in main folder for code to compute peak-gene links and save RNA and ATAC metacell matrices.
 
