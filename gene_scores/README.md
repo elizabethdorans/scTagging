@@ -31,7 +31,7 @@ Example command: [~20 minutes, ~10G]
 
 `<rna_matrix>`: Path to RNA metacell-level matrix.\
 `<gene_gene_pairs_file>`: Path to file with candidate gene-gene pairs.\
-`<outfile>`: Path to a file where output will be saved.\
+`<outfile>`: Path to a file where output will be saved.
 
 Outputs: 
 
@@ -48,7 +48,7 @@ Example command: [~1 hour, ~10G]
 `<norm_atac_file>`: Path to RNA metacell-level matrix.\
 `<outfile>`: Path to a file where output will be saved.\
 `<blacklist_peaks_file>`: [OPTIONAL] Single-column text file with a list of genes to exclude.\
-`<num_peak_pairs>`: [OPTIONAL] Number of random gene-gene pairs to use for the computation. Default is 100000 gene-gene pairs.\
+`<num_peak_pairs>`: [OPTIONAL] Number of random gene-gene pairs to use for the computation. Default is 100000 gene-gene pairs.
     
 Outputs: 
 
