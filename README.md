@@ -5,8 +5,6 @@ Clone the repository using the following command:
 
 `git clone https://github.com/elizabethdorans/scTagging.git`
 
-Download required packages in `software_packages.txt`.
-
 Submit jobs to your own remote cluster (e.g. using [sbatch](https://slurm.schedmd.com/sbatch.html)):
 `cmd="\<command>"; sbatch --time=<time> --mem=<mem> ... --wrap="$cmd"`
 Approximate memory and time requirements are given for computationally intensive tasks, but these will need to be adjusted for different data sets.
