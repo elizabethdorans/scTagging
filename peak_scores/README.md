@@ -71,8 +71,8 @@ Example command: [~10 min, ~5G]
 `<outfile>`: Path to a file where output will be saved.\
 `<blacklist_peaks_file>`: [OPTIONAL] Single-column text file with a list of peaks to exclude.\
 `<gene_universe_file>`: [OPTIONAL] File with genes to include (see gene_TSS.txt in the main folder for format). If running from the peak_scores/ folder, then do not need to supply. If running outside the peak_scores/ folder, then supply revised path to ../gene_TSS.txt.
-`<focal_feature>`: Specified as "peak" (by default) to compute peak co-activity scores.\
+`<focal_feature>`: Specified as "peak" (by default) to compute peak co-activity scores.
 
 Outputs: 
 
-1) Co-activity scores at <outfile>.
+1) Co-activity scores at `<outfile>`.
