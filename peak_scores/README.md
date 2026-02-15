@@ -18,7 +18,7 @@ Example command: [~1 hour, ~10G]
     
 Outputs: 
 
-1) Expected upward bias in squared peak-peak correlations due to finite sample size ('noise' column) at <\outfile>.
+1) Expected upward bias in squared peak-peak correlations due to finite sample size ('noise' column) at `<outfile>`.
 
 ## Step 2: Compute co-accessibility scores
 
@@ -35,7 +35,7 @@ Example command: [~20 min, ~10G]
 
 Outputs: 
 
-1) Co-accessibility scores at <outfile>.
+1) Co-accessibility scores at `<outfile>`.
 
 # Co-activity scores
 
@@ -56,7 +56,7 @@ Example command: [~1 hour, ~10G]
     
 Outputs: 
 
-1) Expected upward bias in squared peak-gene correlations due to finite sample size ('noise' column) at <outfile>.
+1) Expected upward bias in squared peak-gene correlations due to finite sample size ('noise' column) at `<outfile>`.
 
 ## Step 2: Compute co-activity scores
 
