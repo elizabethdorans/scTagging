@@ -20,9 +20,9 @@ Example command: [~2 minutes, ~2G]
                     
 Outputs: 
 
-1) Peak category memberships at <outfile>
+1) Peak category memberships at `<outfile>`.
 
-## Step 2: Define number of nearby genes per peak
+## Step 2: Define number of _cis_ genes per peak
 
 The script `number_nearby_genes.py` defines the number of nearby genes per peak (a covariate in S-CASC; see manuscript for method details). 
 
@@ -33,6 +33,10 @@ Example command: [~2 minutes, ~2G]
 `<peaks_bedfile>`: Path to a bedfile containing ATAC peak coordinates.\
 `<coactivity_scores_file>`: Path to file with co-activity scores.\
 `<outfile>`: File to save output to.
+
+Outputs: 
+
+1) Number of _cis_ genes per peak at `<outfile>`.
 
 ## Step 3: Run S-CASC
 
