@@ -11,7 +11,7 @@ The script `create_annot.py` takes as input a bedfile of genomic regions and a b
 
 Example command: [~2 minutes, ~2G]
 
-`Rscript create_annot.py --peaks_bedfile <peaks_bedfile> --annot_bedfile <annot_bedfile> --outfile <outfile>`
+`python create_annot.py --peaks_bedfile <peaks_bedfile> --annot_bedfile <annot_bedfile> --outfile <outfile>`
 
 `<peaks_bedfile>`: Path to a bedfile containing ATAC peak coordinates.\
 `<annot_bedfile>`: Path to a bedfile containing coordinates of genomic regions of interest.\
@@ -28,7 +28,7 @@ The script `number_nearby_genes.py` defines the number of nearby genes per peak 
 
 Example command: [~2 minutes, ~2G]
 
-`Rscript number_nearby_genes.py --peaks_bedfile <peaks_bedfile> --coactivity_scores_file <coactivity_scores_file> --outfile <outfile>`
+`python number_nearby_genes.py --peaks_bedfile <peaks_bedfile> --coactivity_scores_file <coactivity_scores_file> --outfile <outfile>`
 
 `<peaks_bedfile>`: Path to a bedfile containing ATAC peak coordinates.\
 `<coactivity_scores_file>`: Path to file with co-activity scores.\
