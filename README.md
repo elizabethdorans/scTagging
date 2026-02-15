@@ -17,16 +17,16 @@ Example command: [~1 hour, ~20G]
 
 `Rscript run_archr_peak_gene_linking_coaccessibility_metacells.R --archr_proj_dir <archr_proj_dir> --out_dir <out_dir>`
 
-<archr_proj_dir>: Path to a folder containing an ArchR project with ATAC and RNA data from a single-cell RNA+ATAC multiome data set (same cell barcodes in both RNA and ATAC matrices).\
-<out_dir>: Path to a folder where outputs will be saved (peak-peak co-accessibilities, peak-gene links, and RNA and ATAC metacell-level matrices).\
-<distance_threshold>: [OPTIONAL] Maximum peak-peak and peak-gene distance for computing peak-peak and peak-gene correlations (default is 1Mb).
+`<archr_proj_dir>`: Path to a folder containing an ArchR project with ATAC and RNA data from a single-cell RNA+ATAC multiome data set (same cell barcodes in both RNA and ATAC matrices).\
+`<out_dir>`: Path to a folder where outputs will be saved (peak-peak co-accessibilities, peak-gene links, and RNA and ATAC metacell-level matrices).\
+`<distance_threshold>`: [OPTIONAL] Maximum peak-peak and peak-gene distance for computing peak-peak and peak-gene correlations (default is 1Mb).
                     
 Outputs: 
 
-1) Peak-peak correlations at <out_dir>/coaccessibility_dist<distance_threshold>.tsv
-2) Peak-gene correlations at <out_dir>/peak_gene_links_dist<distance_threshold>.tsv
-3) RNA metacell matrix at <out_dir>/RNA_metacell_matrices/RNA_metacell_matrix.rds
-3) ATAC metacell matrix at <out_dir>/ATAC_metacell_matrices/ATAC_metacell_matrix.rds
+1) Peak-peak correlations at `<out_dir>/coaccessibility_dist<distance_threshold>.tsv`
+2) Peak-gene correlations at `<out_dir>/peak_gene_links_dist<distance_threshold>.tsv`
+3) RNA metacell matrix at `<out_dir>/RNA_metacell_matrices/RNA_metacell_matrix.rds`
+3) ATAC metacell matrix at `<out_dir>/ATAC_metacell_matrices/ATAC_metacell_matrix.rds`
 
 # peak_scores/
 
