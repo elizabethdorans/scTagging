@@ -1,5 +1,5 @@
 # scTagging
-This repo contain code for implementing analyses in Dorans et al. medRxiv, "Distinguishing causal from tagging enhancers using single-cell multiome data." See below (and analysis-specific folders) for steps to compute ATAC peak-level and gene-level scores, implement stratified co-accessibility score regression, and fine-map ATAC peaks to genes.
+This repo contain code for implementing analyses in Dorans and Price medRxiv, "Distinguishing causal from tagging enhancers using single-cell multiome data." See below (and analysis-specific folders) for steps to compute ATAC peak-level and gene-level scores, implement stratified co-accessibility score regression, and fine-map ATAC peaks to genes.
 
 Clone the repository using the following command: 
 
@@ -8,6 +8,8 @@ Clone the repository using the following command:
 Submit jobs to your own remote cluster (e.g. using [sbatch](https://slurm.schedmd.com/sbatch.html)):
 `cmd="<command>"; sbatch --time=<time> --mem=<mem> ... --wrap="$cmd"`
 Approximate memory and time requirements are given for computationally intensive tasks, but these will need to be adjusted for different data sets.
+
+You can run this code using any single-cell RNA+ATAC-seq multiome data set; see Data Availability and Supplementary Table 1 in Dorans and Price medRxiv for examples and download links.
 
 # Step 0: Compute peak-peak co-accessibility and peak-gene links using ArchR.
 
