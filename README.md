@@ -46,6 +46,8 @@ Follow the instructions in the [E2G method tutorials](https://github.com/elizabe
 
 ## Step 1: Compute peak-peak co-accessibility and peak-gene links using ArchR
 
+You can run this code using any single-cell RNA+ATAC-seq multiome data set; see Data Availability and Supplementary Table 1 in Dorans and Price medRxiv for examples and download links.
+
 The script `run_archr_peak_gene_linking_coaccessibility_metacells.R` takes as input an ArchR project for a single-cell RNA+ATAC multiome data set, computes peak-peak correlations for all peak-peak pairs with distance <1Mb, computes peak-gene correlations for all peak-gene pairs with distance <1Mb, and saves RNA and ATAC metacell-level matrices for downstream analyses.
 
 Example command: [~1 hour, ~20G]
