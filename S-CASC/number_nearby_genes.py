@@ -4,7 +4,9 @@ import argparse
 from glob import glob
 import pybedtools
 import sys
-sys.path.insert(1, "..")
+from pathlib import Path
+
+sys.path.insert(1, str(Path(__file__).resolve().parents[1]))
 import functions as fn
 
 parser = argparse.ArgumentParser()
@@ -23,7 +25,7 @@ focal_feature = args.focal_feature
 
 # Create output directory
 outdir = os.path.dirname(outfile)
-if not os.path.exists(outdir):
+if outdir and not os.path.exists(outdir):
     os.makedirs(outdir)
     
 annot_name = 'number_nearby_genes'

@@ -13,8 +13,8 @@ Example command: [~5 minutes, ~2G]
 
 `<rna_matrix_file>`: Path to RNA metacell-level matrix.\
 `<outfile>`: Path to file to save output to.\
-`<gene_universe_file>`: [OPTIONAL] File with gene TSS coordinates (see gene_TSS.txt in the main folder for format). If running from the this folder, then do not need to supply. If running outside this folder, then supply revised path to ../gene_TSS.txt.\
-`<max_distance>`: [OPTIONAL] Maximum gene-gene distance for computing gene-gene correlations (default is 1Mb).
+`<gene_universe_file>`: [OPTIONAL] File with gene TSS coordinates (see gene_TSS.txt in the main folder for format). If running from this folder, then you do not need to supply it. If running outside this folder, then supply a revised path to ../gene_TSS.txt.\
+`<max_distance>`: [OPTIONAL] Maximum gene-gene distance for computing gene-gene correlations (default is 1Mb).\
 `<split_by_chromosome>`: [OPTIONAL] If supplied, will generate separate outfiles for each chromosome.
 
 Outputs: 
@@ -56,14 +56,29 @@ Outputs:
 
 ## Step 4: Compute gene co-expression scores
 
-See `gene_coexpression_coactivity_scores.ipynb` for code to compute gene co-expression scores from gene-gene correlations and expected upward bias.
+See `gene_coexpression_scores.ipynb` for code to compute gene co-expression scores from gene-gene correlations and expected upward bias.
 
 # Gene co-activity scores
 
 ## Step 1: Compute expected upward bias in squared peak-gene correlations.
 
-See Co-activity scores: Step 1 in `../peak_scores/` folder for code to compute expected upward bias in squared peak-gene correlations. 
+See Co-activity scores: Step 1 in main folder for code to compute expected upward bias in squared peak-gene correlations. 
 
 ## Step 2: Compute gene co-activity scores
 
-See `gene_coexpression_coactivity_scores.ipynb` for code to compute gene co-activity scores from peak-gene correlations and expected upward bias. (Peak-gene correlations were already computed in Step 0; see the main folder.)
+The script `bias_corrected_coactivity_scores.R` in the main folder takes as input peak-gene correlations and expected upward bias in squared correlations, and computes peak or gene co-activity scores.
+
+Example command: [~10 min, ~5G]
+
+`Rscript bias_corrected_coactivity_scores.R --uncorrected_file <uncorrected_file> --background_coacc_file <background_coacc_file> --outfile <outfile> --focal_feature gene`
+
+`<uncorrected_file>`: Path to file containing uncorrected ArchR peak-gene correlations.\
+`<background_coacc_file>`: Path to file containing expected upward bias in peak-gene squared correlations (output of step 1 above).\
+`<outfile>`: Path to a file where output will be saved.\
+`<blacklist_peaks_file>`: [OPTIONAL] Single-column text file with a list of peaks to exclude.\
+`<gene_universe_file>`: [OPTIONAL] File with genes to include (see gene_TSS.txt in the main folder for format). If running from the peak_scores/ folder, then do not need to supply. If running outside the peak_scores/ folder, then supply revised path to ../gene_TSS.txt.\
+`<focal_feature>`: Specify as "gene" to compute gene co-activity scores.
+
+Outputs: 
+
+1) Gene co-activity scores at `<outfile>`.

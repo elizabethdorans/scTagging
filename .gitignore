@@ -1,0 +1,13 @@
+.DS_Store
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+Rplots.pdf
+.Rhistory
+.RData
+core.*
+ArchRLogs/
+example_outputs/
+
+# Large intermediate ArchR project files.
+*.arrow

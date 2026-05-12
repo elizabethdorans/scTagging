@@ -40,16 +40,17 @@ Outputs:
 
 ## Step 3: Compute stratified co-accessibility scores
 
-The script `coaccessibility_to_annotation.py` computes co-accessibility scores stratified by functional category. 
+The script `coaccessibility_to_annotation_proximal.py` computes co-accessibility scores stratified by functional category.
 
 Example command: [~10 minutes, ~10G]
 
-`python coaccessibility_to_annotation.py --annot_file <annot_file> --coaccessibility_file <coaccessibility_file> --stratified_coaccessibility_outfile <stratified_coaccessibility_outfile> --background_coaccess_file <background_coaccess_file>`
+`python coaccessibility_to_annotation_proximal.py --annot_file <annot_file> --annot_name <annot_name> --coaccessibility_file <coaccessibility_file> --stratified_coaccessibility_outfile <stratified_coaccessibility_outfile> --background_coaccess_file <background_coaccess_file>`
 
 `<annot_file>`: Path to file with peak category/annotation (output of Step 1 above).\
+`<annot_name>`: Name of the annotation column in `<annot_file>`.\
 `<coaccessibility_file>`: Path to file containing peak-peak correlations.\
 `<stratified_coaccessibility_outfile>`: Path to file to save output to.\
-`<outfile>`: Path to file with expected upward bias in squared peak-peak correlations.
+`<background_coaccess_file>`: Path to file with expected upward bias in squared peak-peak correlations.
 
 Outputs: 
 

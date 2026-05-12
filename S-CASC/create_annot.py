@@ -4,7 +4,9 @@ import argparse
 from glob import glob
 import pybedtools
 import sys
-sys.path.insert(1, "../..")
+from pathlib import Path
+
+sys.path.insert(1, str(Path(__file__).resolve().parents[1]))
 import functions as fn
 
 parser = argparse.ArgumentParser()
@@ -26,7 +28,7 @@ proportion_bp_overlap = args.proportion_bp_overlap
 
 # Create output directory
 outdir = os.path.dirname(outfile)
-if not os.path.exists(outdir):
+if outdir and not os.path.exists(outdir):
     os.makedirs(outdir)
 
 # Load peaks
@@ -48,7 +50,7 @@ if proportion_bp_overlap == True:
     peaks_X_annot[annot_name] = peaks_X_annot['bp_overlap'] / peaks_X_annot['peak_length']
     
 else:
-    ("Detecting binary overlap!")
+    print("Detecting binary overlap!")
     peaks_X_annot = peaks_bed.intersect(annot_bed, c = True).to_dataframe()
     # Define binary annot for any overlap
     peaks_X_annot['name'] = 1 * (peaks_X_annot['name'] >= 1)

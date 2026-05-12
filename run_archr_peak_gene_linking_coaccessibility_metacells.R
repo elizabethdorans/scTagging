@@ -1,9 +1,11 @@
-library(dplyr)
-library(rhdf5)
-library(ArchR)
-library(parallel)
-library(data.table)
-library(argparse)
+suppressPackageStartupMessages({
+    library(dplyr)
+    library(rhdf5)
+    library(ArchR)
+    library(parallel)
+    library(data.table)
+    library(argparse)
+})
 
 # Read in arguments
 parser <- ArgumentParser()
@@ -15,24 +17,31 @@ parser$add_argument("--out_dir",
 parser$add_argument("--distance_threshold",
                     default = 1000000,
                     help = "distance threshold for peak-gene linking")
+parser$add_argument("--threads",
+                    default = 1,
+                    help = "number of threads for ArchR operations")
 
 args <- parser$parse_args()
 
 archr_proj_dir = args$archr_proj_dir
-suffix = args$suffix
+out_dir = args$out_dir
 distance_threshold = as.numeric(args$distance_threshold)
+threads = as.numeric(args$threads)
+
+addArchRThreads(threads = threads)
 
 if (!dir.exists(out_dir)) {
     dir.create(out_dir, recursive = TRUE)
 }
 
 proj <- loadArchRProject(path = archr_proj_dir)
+lsi_sample_cells <- min(10000, length(getCellNames(proj)))
 
 # Add iterative LSI for ATAC (peak matrix)
 proj <- addIterativeLSI(
   ArchRProj = proj, 
   clusterParams = list(resolution = c(2), 
-                       sampleCells = 10000, 
+                       sampleCells = lsi_sample_cells,
                        maxClusters = 6, 
                        n.start= 10),
   saveIterations = FALSE,
@@ -47,7 +56,7 @@ proj <- addIterativeLSI(
 proj <- addIterativeLSI(
   ArchRProj = proj, 
   clusterParams = list(resolution = c(2), 
-                       sampleCells = 10000, 
+                       sampleCells = lsi_sample_cells,
                        maxClusters = 6, 
                        n.start= 10),
   saveIterations = FALSE,
@@ -87,7 +96,7 @@ coacc$peak2 = peaks[coacc$subjectHits]
 coacc = as.data.frame(coacc[c("peak1", "peak2", "correlation", "FDR")])
 
 # Save coaccessibilities
-write.table(coacc, sprintf("%s/coaccessibility_dist%s.tsv", out_dir, distance_threshold), sep = "\t", quote = FALSE)
+write.table(coacc, sprintf("%s/coaccessibility_dist%s.tsv", out_dir, distance_threshold), sep = "\t", quote = FALSE, row.names = FALSE)
 
 # Compute and retrieve peak-gene links
 proj <- addPeak2GeneLinks(
@@ -118,7 +127,7 @@ peak_gene_links$gene = genes[peak_gene_links$idxRNA]
 peak_gene_links = peak_gene_links[c("peak", "gene", "Correlation", "FDR")]
 
 # Save peak-gene links
-write.table(peak_gene_links, sprintf("%s/peak_gene_links_%s.tsv", out_dir, cell_type, distance_threshold), sep = "\t", quote = FALSE)
+write.table(peak_gene_links, sprintf("%s/peak_gene_links_dist%s.tsv", out_dir, distance_threshold), sep = "\t", quote = FALSE, row.names = FALSE)
 
 ## Save metacell matrices
 
