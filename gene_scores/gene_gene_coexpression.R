@@ -7,6 +7,7 @@ suppressPackageStartupMessages(library(Matrix))
 suppressPackageStartupMessages(library(pbapply, include.only = c("pblapply")))
 suppressPackageStartupMessages(library(usedist))
 suppressPackageStartupMessages(library(dplyr))
+suppressPackageStartupMessages(library(tidyr))
 
 parser <- ArgumentParser()
 
@@ -44,7 +45,7 @@ LinkGeneGenePairs <- function(rna_matrix_file,
     
         # Test gene-gene associations
         genes.use <- colnames(x = gene_gene_pairs)
-        gene.T <- t(x = gene.data)
+        gene_T <- t(x = gene.data)
         coef.vec <- c()
         gene.vec <- c()
     

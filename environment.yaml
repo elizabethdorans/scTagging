@@ -1,0 +1,31 @@
+name: sctagging
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - python=3.10
+  - bedtools
+  - numpy
+  - pandas
+  - scipy
+  - matplotlib
+  - seaborn
+  - statsmodels
+  - pybedtools
+  - pyreadr
+  - r-base>=4.2
+  - r-argparse
+  - r-data.table
+  - r-dplyr
+  - r-tidyr
+  - r-matrix
+  - r-pbapply
+  - r-susier
+  - r-usedist
+  - r-seurat
+  - r-signac
+  - bioconductor-archr
+  - bioconductor-genomicranges
+  - bioconductor-rhdf5
+  - bioconductor-summarizedexperiment

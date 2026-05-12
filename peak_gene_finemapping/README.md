@@ -11,7 +11,7 @@ The script `peak_gene_finemapping.R` takes as input RNA and ATAC matrices and ge
 
 Example command: [~1 hour, ~5G]
 
-`Rscript peak_gene_finemapping.R --coactivity_file <coactivity_file> --annot_bedfile <annot_bedfile> --outfile <outfile>`
+`Rscript peak_gene_finemapping.R --coactivity_file <coactivity_file> --rna_file <rna_file> --atac_file <atac_file> --outfile <outfile>`
 
 `<coactivity_file>`: Path to peak-gene links file.\
 `<rna_file>`: Path to RNA metacell-level matrix.\

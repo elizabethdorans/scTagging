@@ -3,8 +3,12 @@ import argparse
 import numpy as np
 import pybedtools
 import pyreadr
-import functions as fn
 import os
+import sys
+from pathlib import Path
+
+sys.path.insert(1, str(Path(__file__).resolve().parents[1]))
+import functions as fn
 
 parser = argparse.ArgumentParser()
 
@@ -12,7 +16,7 @@ parser.add_argument('--gene_list_file')
 parser.add_argument('--rna_matrix_file')
 parser.add_argument('--outfile')
 parser.add_argument('--gene_universe_file',
-                    default = "../gene_TSS.txt")
+                    default = str(Path(__file__).resolve().parents[1] / "gene_TSS.txt"))
 parser.add_argument('--max_distance', default = 1e+06)
 parser.add_argument('--split_by_chromosome', action = 'store_true')
 
@@ -34,7 +38,7 @@ elif rna_matrix_file != None:
     rna_mtx = rna_mtx[rna_mtx.sum(axis = 1) > 0]
     measured_genes = rna_mtx.index.tolist()
 else:
-    print('Must supply either a list of genes or an RNA matrix!')
+    raise ValueError('Must supply either a list of genes or an RNA matrix!')
 
 # Define distance windows around genes
 gene_universe = pd.read_csv(gene_universe_file, sep = '\t')
@@ -64,4 +68,9 @@ if split_by_chromosome == True:
         gene_pairs_chrom[['gene1', 'gene2']].to_csv(outfile_chrom, sep = '\t', index = False)
     
 else:
+    out_dir = '/'.join(outfile.split('/')[:-1])
+    print(out_dir)
+    if not os.path.exists(out_dir):
+        os.makedirs(out_dir)
+        
     gene_pairs.to_csv(outfile, sep = '\t', index = False)

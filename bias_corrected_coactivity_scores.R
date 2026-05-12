@@ -37,6 +37,14 @@ if (!dir.exists(dirname(outfile))) {
 coacc = read.table(uncorrected_file, sep = "\t", header = TRUE)
 head(coacc)
 
+corr_colname <- if ("Correlation" %in% colnames(coacc)) {
+    "Correlation"
+} else if ("correlation" %in% colnames(coacc)) {
+    "correlation"
+} else {
+    stop("Input file must contain a 'Correlation' or 'correlation' column.")
+}
+
 # Filter to non-promoter peaks
 if (!is.null(blacklist_peaks_file)) {
     blacklist_peaks = read.table(blacklist_peaks_file, sep = "\t")$V1
@@ -63,6 +71,7 @@ coacc['focal_feature'] <- coacc[, focal_feature]
 
 # Compute scores
 coacc_scores <- aggregate(coacc[c("corrected_corr_sq", "cis_genes")], by=list(focal_feature=coacc$focal_feature), FUN=sum)
+colnames(coacc_scores)[1] <- focal_feature
 coacc_scores$coactivity_score <- coacc_scores$corrected_corr_sq
 coacc_scores$corrected_corr_sq <- NULL
 
