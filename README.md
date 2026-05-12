@@ -1,5 +1,7 @@
 # scTagging
 
+[![medRxiv](https://img.shields.io/badge/medRxiv-blue?style=flat)](https://www.medrxiv.org/content/10.64898/2026.02.15.26346353v1)
+
 This repo contains code for implementing analyses in Dorans et al. medRxiv, "Distinguishing causal from tagging enhancers using single-cell multiome data." See below (and analysis-specific folders) for steps to compute ATAC peak-level and gene-level scores, implement stratified co-accessibility score regression, and fine-map ATAC peaks to genes.
 
 Clone the repository using:
