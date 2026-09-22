@@ -145,13 +145,7 @@ Rscript bias_corrected_coactivity_scores.R \
   --focal_feature gene
 ```
 
-## Step 3: Run S-CASC
-
-The `S-CASC/` folder contains code to implement stratified co-accessibility score regression.
-
-See [S-CASC/README.md](S-CASC/README.md) for the full workflow.
-
-## Step 4: Run peak-gene fine-mapping
+## Step 3: Run peak-gene fine-mapping
 
 The `peak_gene_finemapping/` folder contains code to implement peak-gene fine-mapping.
 
